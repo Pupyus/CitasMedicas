@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using api_citas.DAO;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+namespace api_citas
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+      var connectionString = "data source=LAPTOP-JKAGNSFI\\SQLEXPRESS;initial catalog=Citas;User ID=Citas;Password=Pupy1234.;persist security info=False;packet size=4096";
+      services.AddSingleton<ICommonRepository>(_ =>
+            ActivatorUtilities.CreateInstance<CommonRepository>(_, connectionString));
+            services.AddSingleton<IPersonasRepository>(_ =>
+            ActivatorUtilities.CreateInstance<PersonasRepository>(_, connectionString));
+            services.AddSingleton<ICitasRepository>(_ =>
+            ActivatorUtilities.CreateInstance<CitasRepository>(_, connectionString));
+
+            services.AddControllers();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+        }
+    }
+}
+

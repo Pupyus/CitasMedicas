@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-citas", "api-citas\api-citas.csproj", "{6E3DB432-C869-4B0E-8760-B8ADE6C3167D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E3DB432-C869-4B0E-8760-B8ADE6C3167D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3DB432-C869-4B0E-8760-B8ADE6C3167D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3DB432-C869-4B0E-8760-B8ADE6C3167D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3DB432-C869-4B0E-8760-B8ADE6C3167D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3B1D43E-1843-4E9E-9981-EB618629A3F8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,68 @@
+<div class="content" role="main">
+    <h3>Médicos disponibles</h3>
+    <br>
+    <div class="row col-12">
+        <div class="col-12">
+            <div class="list-group col-12" *ngFor="let doctores of doctorsList">
+                <a class="list-group-item list-group-item-action" (click)="selectedDoctor(doctores.id, doctores.nombre, doctores.paterno)">{{doctores.nombre}} {{doctores.paterno}}</a>
+                <br>
+            </div>
+        </div>
+
+        <div class="col-6" *ngIf="ifCalendar">
+            <h3>Seleccionar la cita con el doctor: <p style="color: grey;">{{doctor}}</p></h3>
+            <br>
+            <div >
+                <div class="form-group">
+                <label>Fecha</label>
+                <input type="date" class="form-control" (change)="selectedDate($event)" id="date">
+                </div> 
+                <br>
+                <div class="form-group">
+                <label>Horarios disponibles</label>
+                <select name="select" class="form-control" [(ngModel)]="selected" (change)="selectedTime($event)">
+                    <option [value]="item.id" *ngFor="let item of hours">{{item.nombre}}</option>
+                </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-6" *ngIf="showFillData">
+            <h3>Ingresa los datos del paciente</h3>
+            <div class="form-group">
+                <label >Nombre</label>
+                <input type="text" [(ngModel)]="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Correo</label>
+                <input [(ngModel)]="email" class="form-control" type="email">
+            </div>
+            <div class="form-group">
+                <label>Fecha</label>
+                <input [(ngModel)]="date" class="form-control" type="date" readonly>
+            </div>
+            <div class="form-group">
+                <label>Hora</label>
+                <input [(ngModel)]="time" class="form-control" type="text" readonly>
+            </div>
+            <br>
+            <button class="btn btn-primary" (click)="newAppointment()"> Guardar cita</button>
+        </div>
+    </div>
+</div>
+<div class="modal" [ngStyle]="{'display':modals}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Elección de horario</h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body">
+          <p>{{alerts}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="close()" >Cerrar</button>
+          <button type="button" class="btn btn-primary" *ngIf="showButton" (click)="showFields()">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>

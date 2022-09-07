@@ -1,0 +1,63 @@
+USE [master]
+
+DROP DATABASE IF EXISTS [Citas]
+
+CREATE DATABASE [Citas]
+GO
+
+USE [Citas]
+GO
+
+CREATE TABLE [dbo].[Persona] (
+	[Id] INT NOT NULL IDENTITY,
+	[Nombre] NVARCHAR(256) NOT NULL,
+	[Paterno] NVARCHAR(256) NULL,
+	[Materno] NVARCHAR(256) NULL,
+	[Mail] NVARCHAR(256) NULL,
+	[EsMedico] BIT NOT NULL,
+	PRIMARY KEY CLUSTERED ([Id])
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+CREATE TABLE [dbo].[Horario] (
+	[Id] INT NOT NULL IDENTITY,
+	[Nombre] NVARCHAR(16),
+	PRIMARY KEY CLUSTERED ([Id])
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+CREATE TABLE [dbo].[Cita] (
+	[Id] INT NOT NULL IDENTITY,
+	[IdPaciente] INT NOT NULL,
+	[IdMedico] INT NOT NULL,
+	[IdHorario] INT NOT NULL,
+	[Fecha] DATETIME NOT NULL,
+	PRIMARY KEY CLUSTERED ([Id])
+	WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON),
+)
+GO
+
+SET IDENTITY_INSERT [dbo].[Horario] ON 
+INSERT INTO [dbo].[Horario] (Id, Nombre)
+VALUES
+(1, '10:00'),
+(2, '11:00'),
+(3, '12:00'),
+(4, '13:00'),
+(5, '14:00'),
+(6, '15:00'),
+(7, '16:00')
+
+SET IDENTITY_INSERT [dbo].[Horario] OFF
+GO
+
+INSERT INTO [dbo].[Persona] (Nombre, Paterno, EsMedico)
+VALUES
+('Yusel', 'Alcobas', 1),
+('Benito', 'Perez', 1),
+('Alma', 'Hernandez', 1),
+('Maria', 'Rivera', 1),
+('Eduardo', 'Garcia', 1)
+GO
