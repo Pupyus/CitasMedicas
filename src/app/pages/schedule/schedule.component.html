@@ -1,35 +1,35 @@
 <div class="content" role="main">
-    <h3>Selecciona una fecha</h3>
-    <br>
-    <div class="form-group">
-      <label>Selecciona el médico</label>
-      <select name="select" class="form-control" [(ngModel)]="idDoctor" (change)="selectedDoctor($event)">
-          <option [value]="item.id" *ngFor="let item of doctorList">{{item.nombre}} {{item.paterno}}</option>
-      </select>
-    </div>
-    <br>
-    <div class="form-group">
-        <label>Selecciona la fecha</label>
-        <input type="date" class="form-control" (change)="selectedDate($event)" id="date">
-    </div> 
-    <br>
-    <br>
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#Id Médico</th>
-            <th scope="col">Médico</th>
-            <th scope="col">Paciente</th>
-            <th scope="col">Hora</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let items of list">
-            <th scope="row">{{items.idMedico}}</th>
-            <td>{{items.medico}}</td>
-            <td>{{items.paciente}}</td>
-            <td>{{items.horario}}</td>
-          </tr>
-        </tbody>
-    </table>
+  <h3>Busqueda de citas</h3>
+  <br>
+  <div class="form-group">
+    <label>Selecciona el médico</label>
+    <select name="select" class="form-control" [(ngModel)]="idDoctor" (change)="selectedDoctor($event)">
+      <option [value]="item.id" *ngFor="let item of doctorList">{{item.nombre}} {{item.paterno}}</option>
+    </select>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Selecciona la fecha</label>
+    <input type="date" class="form-control" (change)="selectedDate($event)" id="date">
+  </div>
+  <br>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#Id Médico</th>
+        <th scope="col">Médico</th>
+        <th scope="col">Paciente</th>
+        <th scope="col">Hora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of list">
+        <th scope="row">{{items.idMedico}}</th>
+        <td>{{items.medico}}</td>
+        <td>{{items.paciente}}</td>
+        <td>{{items.horario}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

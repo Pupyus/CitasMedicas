@@ -14,7 +14,7 @@ export class DoctorsService {
   getDoctors(): Observable<any> {
     return this.http.get<any>(`https://localhost:44375/api/Personas/Doctores`).pipe(
       tap(values => {
-          values;
+        values;
       })
     );
   }
@@ -22,7 +22,7 @@ export class DoctorsService {
   getFreeHours(): Observable<any> {
     return this.http.get<any>(`https://localhost:44375/api/Common/Horarios`).pipe(
       tap(values => {
-          values;
+        values;
       })
     );
   }
@@ -30,16 +30,15 @@ export class DoctorsService {
   getAvalability(idDoc: number, idTime: number, date: Date): Observable<any> {
     return this.http.get<any>(`https://localhost:44375/api/Citas/Disponibilidad?idDoctor=${idDoc}&idHorario=${idTime}&fecha=${date}`).pipe(
       tap(values => {
-          values;
+        values;
       })
     );
   }
-  //https://api.generadordni.es/v2/doi/cif?custom_letter=${date}
-  postData(data: any): Observable<any>{
+
+  postData(data: any): Observable<any> {
     return this.http.post<any>(`https://localhost:44375/api/Citas`, data).pipe(
       tap(values => {
-        debugger
-          values;
+        values;
       })
     );
   }
@@ -47,15 +46,9 @@ export class DoctorsService {
   getSchedule(date: Date, id: number): Observable<any> {
     return this.http.get<any>(`https://localhost:44375/api/Citas/Agenda?idDoctor=${id}&fecha=${date}`).pipe(
       tap(values => {
-        debugger
-          values;
+        values;
       })
     );
   }
 
-  // private getHeaders(): HttpHeaders {
-  //   return new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 
-  //   'Access-Control-Allow-Headers': 'X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method',
-  //   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'});
-  // }
 }

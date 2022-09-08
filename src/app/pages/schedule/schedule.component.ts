@@ -17,17 +17,16 @@ export class ScheduleComponent implements OnInit {
     this.getDoctors();
   }
 
-  selectedDate(e: any){
+  selectedDate(e: any) {
     const date = e.target.value;
     this.doctorService.getSchedule(date, this.idDoctor).subscribe(result => {
-      debugger;
       if (result) {
         this.list = result;
       }
     });
   }
 
-  getDoctors(){
+  getDoctors() {
     this.doctorService.getDoctors().subscribe(result => {
       if (result) {
         this.doctorList = result;
@@ -35,7 +34,7 @@ export class ScheduleComponent implements OnInit {
     });
   }
 
-  selectedDoctor(e: any){
+  selectedDoctor(e: any) {
     console.log(e.target.value)
   }
 

@@ -27,9 +27,9 @@ import { AppointmentsComponent } from './pages/appointments/appointments.compone
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    HttpClientModule, 
+    HttpClientModule,
     FormsModule,
-    
+
   ],
   providers: [
     {

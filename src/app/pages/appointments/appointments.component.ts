@@ -74,14 +74,13 @@ export class AppointmentsComponent implements OnInit {
   selectedTime(e: any){
     if (e.target.value) {
       this.doctorService.getAvalability(this.idDoctor, e.target.value, this.date).subscribe(result => {
-        debugger;
         if (result.disponible) {
           this.hours.forEach((element: { id: any; nombre: string; }) => {
             if (element.id == e.target.value) {
               this.id = element.id;
               this.time = element.nombre;
               this.showButton = true;
-              this.alerts = "¿Este el horario que elegiste? " + element.nombre;
+              this.alerts = "¿Este es el horario que elegiste? " + element.nombre;
               this.modals = "block";
             }
           });

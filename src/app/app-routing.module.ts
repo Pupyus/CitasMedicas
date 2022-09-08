@@ -6,23 +6,23 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 
 const routes: Routes = [
-    {
-      path: '',
-      redirectTo: 'dashboard',
-      pathMatch: 'full'
-    },
-    {
-      path: 'dashboard',
-      component: DashboardComponent
-    },
-    {
-      path: 'appointments',
-      component: AppointmentsComponent
-    },
-    {
-      path: 'schedule',
-      component: ScheduleComponent
-    },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'appointments',
+    component: AppointmentsComponent
+  },
+  {
+    path: 'schedule',
+    component: ScheduleComponent
+  },
 ];
 
 @NgModule({

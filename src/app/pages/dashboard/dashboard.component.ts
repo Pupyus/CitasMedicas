@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   loginForm!: FormGroup;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
-  constructor(    private socialAuthService: SocialAuthService,
+  constructor(private socialAuthService: SocialAuthService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
       if (this.isLoggedin && URLactual.includes('dashboard')) {
         this.router.navigate(['appointments']);
       }
-      else{
+      else {
         this.router.navigate(['dashboard']);
       }
     });
