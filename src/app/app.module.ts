@@ -14,12 +14,14 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ScheduleComponent } from './pages/schedule/schedule.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
+import { LoginComponent } from './components/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     ScheduleComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

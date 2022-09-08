@@ -28,10 +28,6 @@ export class AppComponent implements OnInit {
   ) {
   }
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
       this.isLoggedin = user != null;
@@ -41,7 +37,6 @@ export class AppComponent implements OnInit {
         this.router.navigate(['dashboard']);
       }
     });
-
   }
   loginWithFacebook(): void {
     this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
